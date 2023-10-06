@@ -56,9 +56,19 @@ class BinarySearchTree {
     /**
      * pre-order traversal
      * Prints the value of every node preorder
-     * @param root node of
+     * @param root node of binary tree
      */
     public void preOrderTraversal(Node root) {
+        
+    }
+
+
+    /**
+     *in-order traversal
+     * Prints the value of every node inOrder
+     * @param root node of binary tree
+    */
+    public void inOrderTraversal(Node root) {
         // if node doesn't exist, break out
         if (node == null)
             return;
@@ -71,14 +81,6 @@ class BinarySearchTree {
 
         // recursion on right child
         printInorder(node.right);
-    }
-
-
-    /*
-    in-order traversal
-    */
-    public void inOrderTraversal(Node root) {
-        //implement in here
     }
 
 
