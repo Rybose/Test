@@ -60,17 +60,17 @@ class BinarySearchTree {
      */
     public void preOrderTraversal(Node root) {
         // if node is empty, break from current recurse
-        if (node == null)
+        if (root == null)
             return;
 
         // print data of the node
-        System.out.print(node.key + ", ");
+        System.out.print(root.value + ", ");
 
         // recursion on the left subtree
-        preOrderTraversal(node.left);
+        preOrderTraversal(root.left);
 
         // recursion on the right subtree
-        preOrderTraversal(node.right);
+        preOrderTraversal(root.right);
     }
 
 
@@ -81,17 +81,17 @@ class BinarySearchTree {
     */
     public void inOrderTraversal(Node root) {
         // if node doesn't exist, break out
-        if (node == null)
+        if (root == null)
             return;
 
         // recursion on the left child
-        inOrderTraversal(node.left);
+        inOrderTraversal(root.left);
 
         // print data of node
-        System.out.print(node.value + ", ");
+        System.out.print(root.value + ", ");
 
         // recursion on right child
-        inOrderTraversal(node.right);
+        inOrderTraversal(root.right);
     }
 
 
@@ -104,27 +104,46 @@ class BinarySearchTree {
      */
     public void postOrderTraversal(Node root) {
         // if node empty, break from recurse
-        if (node == null)
+        if (root == null)
             return;
 
         // first recurse through left subtree
-        postOrderTraversal(node.left);
+        postOrderTraversal(root.left);
 
         // then recurse through right subtree
-        postOrderTraversal(node.right);
+        postOrderTraversal(root.right);
 
         // print the node
-        System.out.print(node.key + " ");
+        System.out.print(root.value + " ");
 
     }
 
 
-    /*
-    a method to find the node in the tree
-    with a specific value
-    */
+    /**
+     * a method to find the node in the tree with a specific value
+     * @param root node of binary tree, value user is looking for
+     * @return boolean indicating key is in binary tree
+     */
     public boolean find(Node root, int key) {
-        //implement in here
+        // check if tree is empty
+        if (root == null) {
+            System.out.println("Tree is empty");
+        }
+        else {
+            // if node matches key, return true
+            if (root.value == key) {
+                return true;
+            }
+            // search in left tree
+            if (root.left != null) {
+                find(root.left, key);
+            }
+            // search in right tree
+            if (root.right != null) {
+                find(root.right, key);
+            }
+        }
+        // if tree doesn't contain key
         return false;
     }
 
