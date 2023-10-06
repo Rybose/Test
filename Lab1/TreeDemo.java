@@ -1,8 +1,8 @@
-class Node{
+class Node {
     int value;
     Node left, right;
 
-    public Node(int value){
+    public Node(int value) {
         this.value = value;
         left = null;
         right = null;
@@ -10,7 +10,7 @@ class Node{
 
 }
 
-class BinarySearchTree{
+class BinarySearchTree {
 
     Node root;
 
@@ -22,27 +22,27 @@ class BinarySearchTree{
 	   /*
 	   inserts a node into the tree
 	   */
-    public void insert(int value){
+    public void insert(int value) {
         //tree is empty
-        if(root == null){
+        if (root == null) {
             root = new Node(value);
             return;
-        }else{
+        } else {
             Node current = root;
             Node parent = null;
 
-            while(true){
+            while (true) {
                 parent = current;
 
-                if(value < current.value){
+                if (value < current.value) {
                     current = current.left;
-                    if(current == null){
+                    if (current == null) {
                         parent.left = new Node(value);
                         return;
                     }
-                }else{
+                } else {
                     current = current.right;
-                    if(current == null){
+                    if (current == null) {
                         parent.right = new Node(value);
                         return;
                     }
@@ -53,21 +53,31 @@ class BinarySearchTree{
         }//closing main if-else
     }
 
-    /*
-    pre-order traversal
-    Prints the value of every node preorder
-    */
-    public void preOrderTraversal(Node root){
-        //implement in here
+    /**
+     * pre-order traversal
+     * Prints the value of every node preorder
+     * @param root node of
+     */
+    public void preOrderTraversal(Node root) {
+        // if node doesn't exist, break out
+        if (node == null)
+            return;
 
+        // recursion on the left child
+        printInorder(node.left);
+
+        // print data of node
+        System.out.print(node.value + ", ");
+
+        // recursion on right child
+        printInorder(node.right);
     }
-
 
 
     /*
     in-order traversal
     */
-    public void inOrderTraversal(Node root){
+    public void inOrderTraversal(Node root) {
         //implement in here
     }
 
@@ -77,69 +87,66 @@ class BinarySearchTree{
 	   post-order traversal
 	   */
 
-    public void postOrderTraversal(Node root){
+    public void postOrderTraversal(Node root) {
         //implement in here
 
     }
-
 
 
     /*
     a method to find the node in the tree
     with a specific value
     */
-    public boolean find(Node root, int key){
+    public boolean find(Node root, int key) {
         //implement in here
-
+        return false;
     }
-
 
 
     /*
     a method to find the node in the tree
     with a smallest key
     */
-    public int getMin(Node root){
+    public int getMin(Node root) {
         //implement in here
-
+        return 0;
     }
-
 
 
     /*
     a method to find the node in the tree
     with a largest key
     */
-    public int getMax(Node root){
+    public int getMax(Node root) {
         //implement in here
+        return 0;
     }
-
 
 
     /*
     this method will not compile until getMax
     is implemented
     */
-    public Node delete(Node root, int key){
+    public Node delete(Node root, int key) {
 
-        if(root == null){
+        if (root == null) {
             return root;
-        }else if(key < root.value){
+        } else if (key < root.value) {
             root.left = delete(root.left, key);
-        }else if(key > root.value){
+        } else if (key > root.value) {
             root.right = delete(root.right, key);
-        }else{
+        } else {
             //node has been found
-            if(root.left==null && root.right==null){
+            if (root.left == null && root.right == null) {
                 //case #1: leaf node
                 root = null;
-            }else if(root.right == null){
+            } else if (root.right == null) {
                 //case #2 : only left child
                 root = root.left;
-            }else if(root.left == null){
+            } else if (root.left == null) {
                 //case #2 : only right child
                 root = root.right;
-            }else{
+            } else {
                 //case #3 : 2 children
                 root.value = getMax(root.left);
                 root.left = delete(root.left, root.value);
@@ -149,15 +156,13 @@ class BinarySearchTree{
     }
 
 
-
 }
 
 
-
-public class TreeDemo{
-    public static void main(String[] args){
-        BinarySearchTree t1  = new BinarySearchTree();
-        t1.insert( 24);
+public class TreeDemo {
+    public static void main(String[] args) {
+        BinarySearchTree t1 = new BinarySearchTree();
+        t1.insert(24);
         t1.insert(80);
         t1.insert(18);
         t1.insert(9);
