@@ -59,7 +59,18 @@ class BinarySearchTree {
      * @param root node of binary tree
      */
     public void preOrderTraversal(Node root) {
-        
+        // if node is empty, break from current recurse
+        if (node == null)
+            return;
+
+        // print data of the node
+        System.out.print(node.key + ", ");
+
+        // recursion on the left subtree
+        preOrderTraversal(node.left);
+
+        // recursion on the right subtree
+        preOrderTraversal(node.right);
     }
 
 
@@ -74,13 +85,13 @@ class BinarySearchTree {
             return;
 
         // recursion on the left child
-        printInorder(node.left);
+        inOrderTraversal(node.left);
 
         // print data of node
         System.out.print(node.value + ", ");
 
         // recursion on right child
-        printInorder(node.right);
+        inOrderTraversal(node.right);
     }
 
 
