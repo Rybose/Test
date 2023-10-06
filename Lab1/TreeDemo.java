@@ -96,12 +96,25 @@ class BinarySearchTree {
 
 
 
-	   /*
-	   post-order traversal
-	   */
 
+    /**
+     * post-order traversal
+     * Prints the value of every node postOrder
+     * @param root node of binary tree
+     */
     public void postOrderTraversal(Node root) {
-        //implement in here
+        // if node empty, break from recurse
+        if (node == null)
+            return;
+
+        // first recurse through left subtree
+        postOrderTraversal(node.left);
+
+        // then recurse through right subtree
+        postOrderTraversal(node.right);
+
+        // print the node
+        System.out.print(node.key + " ");
 
     }
 
