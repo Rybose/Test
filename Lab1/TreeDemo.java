@@ -1,3 +1,7 @@
+//Noah Riber
+//CS 380
+//Lab Assignment 1
+
 class Node {
     int value;
     Node left, right;
@@ -11,13 +15,9 @@ class Node {
 }
 
 class BinarySearchTree {
-
     Node root;
-
-
     /*
     recursive insert method
-
     */
 	   /*
 	   inserts a node into the tree
@@ -169,17 +169,29 @@ class BinarySearchTree {
             // returning value of minimum node
             return (current.value);
         }
-
     }
 
 
-    /*
-    a method to find the node in the tree
-    with a largest key
+    /**
+     * a method to find the node in the tree with the largest key
+     * @param root node of binary tree
+     * @return int containing value of max node in tree
     */
     public int getMax(Node root) {
-        //implement in here
-        return 0;
+        // if tree is empty returns -1
+        if (root == null) {
+            return (-1);
+        } else { //otherwise continue
+            // sets current node
+            Node current = root;
+
+            // goes down right subtree until reaching null (maximum value)
+            while (current.right != null) {
+                current = current.right;
+            }
+            // returning value of maximum node
+            return (current.value);
+        }
     }
 
 
